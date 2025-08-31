@@ -41,9 +41,7 @@ def load_user(user_id):
 from flask_sqlalchemy import SQLAlchemy
 
 # Render provides DATABASE_URL
-uri = os.getenv("postgres://hms_wgaj_user:postgres://hms_wgaj_user:PASSWORD@dpg-d2q9j8idbo4c73btsn6g-a:5432/hms_wgaj
-@dpg-d2q9j8idbo4c73btsn6g-a:5432/hms_wgaj
-")  
+uri = os.getenv("postgres://hms_wgaj_user:bPfdrGRTWp2dJbrE5xsFMsa2iiD7UhKX@dpg-d2q9j8idbo4c73btsn6g-a:5432/hms_wgaj")  
 
 # If using PostgreSQL, SQLAlchemy requires 'postgresql://' instead of 'postgres://'
 if uri and uri.startswith("postgres://"):
