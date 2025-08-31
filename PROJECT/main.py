@@ -6,6 +6,7 @@ from flask_login import login_user,logout_user,login_manager,LoginManager
 from flask_login import login_required,current_user
 # from flask_mail import Mail
 import json
+import os
 
 
 
@@ -39,7 +40,8 @@ def load_user(user_id):
 
 
 # app.config['SQLALCHEMY_DATABASE_URL']='mysql://username:password@localhost/databas_table_name'
-app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:@localhost/hms'
+import os
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 db=SQLAlchemy(app)
 
 
