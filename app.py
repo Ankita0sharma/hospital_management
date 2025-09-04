@@ -6,14 +6,13 @@ from flask_login import login_user,logout_user,login_manager,LoginManager
 from flask_login import login_required,current_user
 # from flask_mail import Mail
 import json
-import os
 
 
 
 # MY db connection
 local_server= True
 app = Flask(__name__)
-app.secret_key='def8774bbff0a8505d253d48d91b44fb'
+app.secret_key='hmsprojects'
 
 
 # this is for getting unique user access
@@ -38,26 +37,10 @@ def load_user(user_id):
 
 
 
-from flask_sqlalchemy import SQLAlchemy
-
-# Render provides DATABASE_URL
-uri = os.getenv("postgres://hms_wgaj_user:bPfdrGRTWp2dJbrE5xsFMsa2iiD7UhKX@dpg-d2q9j8idbo4c73btsn6g-a:5432/hms_wgaj")  
-
-# If using PostgreSQL, SQLAlchemy requires 'postgresql://' instead of 'postgres://'
-if uri and uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = uri
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
-
-db = SQLAlchemy(app)
-
-
 
 # app.config['SQLALCHEMY_DATABASE_URL']='mysql://username:password@localhost/databas_table_name'
-import os
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-db=SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Ankita%233115@localhost:3306/hms2'
+db = SQLAlchemy(app)
 
 
 
@@ -324,5 +307,5 @@ def search():
 
 
 
-if __name__ == "__main__":
-    app.run(debug=True)  
+app.run(debug=True)    
+
